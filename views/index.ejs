@@ -1,0 +1,57 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container">
+  <h1>Welcome to Eleni's Blog</h1>
+
+  <img
+    src="https://media-public.canva.com/DwEzI/MAFRaVDwEzI/1/t.png"
+    alt="quarz image"
+  />
+  <img
+    src="https://media-public.canva.com/DDroQ/MAGC0hDDroQ/1/t.png"
+    alt="star"
+    id="starsign1"
+  />
+</div>
+
+
+<div class="outerContainer">
+    <button onclick="myFunction()">Generate Post</button>
+
+    <!-- <label for="storyus">Tell us your story:</label> -->
+    <form class="hideTxtArea" id="myarea" action="/submit" method="POST">
+      <label for="title">Title here:</label><br>
+      <input type="text" id="title" name="title" value="Your Title here" required>
+      
+      <br>
+      <label for="story">Your post here:</label><br>
+      
+      <input
+        type="text"
+        id="userInput" 
+        name="story"
+        placeholder="tell us your story"
+        required
+      /> <br>
+      <hr>
+      <input type="submit" value="Submit Post">
+    </form>
+</div>
+
+<% if (locals.title && locals.story) { %>
+  <h2> <%= title %> ⋆⭒˚.⋆</h2>
+  <br>
+<p> <%= story %> </p>
+  <% } %>
+  
+<!-- <form action="/update" method="PATCH">
+  <input type="submit" value="Edit Post">
+</form>
+
+<form action="/delete" method="DELETE">
+  <input type="submit" value="Delete Post">
+</form> -->
+
+
+<!-- Step 3 Add Footer -->
+<%- include("partials/footer.ejs") %>
